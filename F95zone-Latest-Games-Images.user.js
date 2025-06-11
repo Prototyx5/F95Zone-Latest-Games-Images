@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         F95Zone - Latest Games Images
-// @namespace    https://github.com/LenAnderson/
-// @downloadURL  https://github.com/LenAnderson/F95zone-Latest-Games-Images/raw/master/F95zone-Latest-Games-Images.user.js
+// @namespace    https://github.com/Prototyx5/
+// @downloadURL  https://github.com/Prototyx5/F95Zone-Latest-Games-Images/raw/refs/heads/main/F95zone-Latest-Games-Images.user.js
 // @version      1.1
 // @description  Move mouse from left to right to navigate preview images on Latest Games page.
 // @author       LenAnderson
