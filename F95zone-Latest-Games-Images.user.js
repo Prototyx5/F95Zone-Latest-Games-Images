@@ -2,7 +2,7 @@
 // @name         F95Zone - Latest Games Images
 // @namespace    https://github.com/Prototyx5/
 // @downloadURL  https://github.com/Prototyx5/F95Zone-Latest-Games-Images/raw/refs/heads/main/F95zone-Latest-Games-Images.user.js
-// @version      1.2
+// @version      1.3
 // @description  Move mouse from left to right to navigate preview images on Latest Games page.
 // @author       LenAnderson
 // @match        https://f95zone.to/sam/latest_alpha/*
@@ -49,23 +49,22 @@
 				gallery.parentElement.append(marker);
 				markers.push(marker);
 			});
-			const moved = evt=>{
-				if (!gallery.parentElement) {
-					removeEventListener('mousemove', moved);
-					markers.forEach(it=>it.remove());
-					cur.remove();
-					return;
-				}
-				const rect = gallery.getBoundingClientRect();
-				const step = rect.width / imgs.length;
+                        const moved = evt=>{
+                                const rect = gallery.getBoundingClientRect();
+                                const step = rect.width / imgs.length;
                                 let idx = Math.floor((evt.x - rect.left) / step);
                                 idx = Math.max(0, Math.min(idx, imgs.length - 1));
                                 cur.textContent = idx+1;
                                 imgs.forEach((img, i)=>{
                                         img.classList[i==idx?'add':'remove']('f95-lgi--active');
                                 });
-			};
-			addEventListener('mousemove', moved);
+                        };
+                        const leave = () => {
+                                cur.textContent = '1';
+                                imgs.forEach(img => img.classList.remove('f95-lgi--active'));
+                        };
+                        gallery.addEventListener('mousemove', moved);
+                        gallery.addEventListener('mouseleave', leave);
 		});
 	});
 
