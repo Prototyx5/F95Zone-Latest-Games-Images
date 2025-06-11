@@ -31,8 +31,9 @@
 		log('handle');
 		$$('.resource-tile_gallery-wrap:not([data-lgi])').forEach(gallery=>{
 			gallery.setAttribute('data-lgi', 1);
-			const oldCur = $('.resource-tile_gallery-index');
-			oldCur.style.display = 'none';
+                        const oldCur = $('.resource-tile_gallery-index');
+                        if (!oldCur) return;
+                        oldCur.style.display = 'none';
 			const cur = document.createElement('span'); {
 				cur.textContent = '1';
 				oldCur.insertAdjacentElement('afterend', cur);
@@ -57,11 +58,12 @@
 				}
 				const rect = gallery.getBoundingClientRect();
 				const step = rect.width / imgs.length;
-				const idx = Math.floor((evt.x - rect.left) / step);
-				cur.textContent = idx+1;
-				imgs.forEach((img, i)=>{
-					img.classList[i==idx?'add':'remove']('f95-lgi--active');
-				});
+                                let idx = Math.floor((evt.x - rect.left) / step);
+                                idx = Math.max(0, Math.min(idx, imgs.length - 1));
+                                cur.textContent = idx+1;
+                                imgs.forEach((img, i)=>{
+                                        img.classList[i==idx?'add':'remove']('f95-lgi--active');
+                                });
 			};
 			addEventListener('mousemove', moved);
 		});
