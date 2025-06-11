@@ -2,7 +2,7 @@
 // @name         F95Zone - Latest Games Images
 // @namespace    https://github.com/Prototyx5/
 // @downloadURL  https://github.com/Prototyx5/F95Zone-Latest-Games-Images/raw/refs/heads/main/F95zone-Latest-Games-Images.user.js
-// @version      1.2
+// @version      1.3
 // @description  Move mouse from left to right to navigate preview images on Latest Games page.
 // @author       LenAnderson
 // @match        https://f95zone.to/sam/latest_alpha/*
